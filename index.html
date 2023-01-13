@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+            name="description"
+            content="LeySauce TV"
+    />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="manifest.json" />
+    <title>LeySauce TV</title>
+</head>
+<body>
+    <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+    <div class="top-container">
+        <div class="top-nav">
+            <a class="header-link" href="https://twitch.tv/LeySauce">Twitch</a>
+            <text>|</text>
+            <a class="header-link" href="https://twitter.com/LeySauce">Twitter</a>
+            <text>|</text>
+            <a class="header-link" href="https://www.youtube.com/channel/UChfifj-m6Xo_DPsuDFAJ3hQ/">YouTube</a>
+            <text>|</text>
+            <a class="header-link" href="https://esportsgear.com/collections/leysauce">Merch</a>
+            <text>|</text>
+            <a class="header-link" href="mods.html">Meet the Mods</a>
+        </div>
+        <h1>I'm LeySauce.</h1>
+        <h2>a <span class="pro">speed</span>runner.</h2>
+    </div>
+    <div class="twitch-container">
+        <div id="twitch-video" class="hide">
+        </div>
+        <div id="twitch-chat-light" class="hide twitch-chat">
+            <iframe
+                frameborder="0"
+                scrolling="no"
+                src="https://www.twitch.tv/embed/leysauce/chat?parent=leysauce.tv">
+                height="100%"
+                width="100%"
+                allow="autoplay">
+            </iframe>
+        </div>
+        <div id="twitch-chat-dark" class="hide twitch-chat">
+            <iframe
+                frameborder="0"
+                scrolling="no"
+                src="https://www.twitch.tv/embed/leysauce/chat?parent=leysauce.tv&darkpopout">
+                height="100%"
+                width="100%"
+                allow="autoplay">
+            </iframe>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var options = {
+            channel: "leysauce",
+            height: 360,
+            width: 640,
+        };
+        const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+        var player = new Twitch.Player("twitch-video", options);
+
+        player.addEventListener(Twitch.Player.READY, initiate)
+
+        function initiate() {
+            player.addEventListener(Twitch.Player.ONLINE, handleOnline);
+            player.addEventListener(Twitch.Player.OFFLINE, handleOffline);
+            player.removeEventListener(Twitch.Player.READY, initiate);
+        }
+
+        function handleOnline() {
+            document.getElementById("twitch-video").classList.remove('hide');
+            darkThemeMq.matches ? document.getElementById("twitch-chat-dark").classList.remove('hide') : document.getElementById("twitch-chat-light").classList.remove('hide');
+            player.removeEventListener(Twitch.Player.ONLINE, handleOnline);
+            player.addEventListener(Twitch.Player.OFFLINE, handleOffline);
+            player.setMuted(false);
+        }
+
+        function handleOffline() {
+            document.getElementById("twitch-video").classList.add('hide');
+            document.getElementById("twitch-chat-dark").classList.add('hide')
+            document.getElementById("twitch-chat-light").classList.add('hide');
+            player.removeEventListener(Twitch.Player.OFFLINE, handleOffline);
+            player.addEventListener(Twitch.Player.ONLINE, handleOnline);
+            player.setMuted(true);
+        }
+    </script>
+
+    <div class="bottom-container">
+        <a class="footer-link" href="https://twitch.tv/LeySauce">Twitch</a>
+        <text>|</text>
+        <a class="footer-link" href="https://twitter.com/LeySauce">Twitter</a>
+        <text>|</text>
+        <a class="footer-link" href="https://www.youtube.com/channel/UChfifj-m6Xo_DPsuDFAJ3hQ/">YouTube</a>
+        <text>|</text>
+        <a class="footer-link" href="https://esportsgear.com/collections/leysauce">Merch</a>
+        <text>|</text>
+        <a class="footer-link" href="mods.html">Meet the Mods</a>
+        <p>© 2022 Dave Gordon</p>
+    </div>
+</body>
+</html>

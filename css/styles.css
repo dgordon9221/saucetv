@@ -1,0 +1,131 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    background-color: #282828;
+    color: #999;
+}
+
+h1 {
+    color: #E94560;
+    font-family: 'Sacramento', cursive;
+    font-size: 5.625rem;
+    line-height: 0.5;
+    margin: 50px auto 0 auto;
+}
+
+h2 {
+    color: #E94560;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+h3 {
+    color: #E94560;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    color: #E94560;
+}
+
+hr {
+    border: dotted #000000 6px;
+    border-bottom: none;
+    width: 4%;
+    margin: 100px auto;
+}
+
+.top-container {
+    background-color: #282828;
+    padding-top: 0px;
+    position: relative;
+    text-align: center;
+}
+
+.middle-container {
+    background-color: #282828;
+    position: relative;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.bottom-container {
+    background-color: #282828;
+    position: relative;
+    text-align: center;
+}
+
+.pro {
+    text-decoration: underline;
+}
+
+.headshot {
+    border-radius: 100%;
+    height: 250px;
+    float: left;
+    margin-right: 30px;
+}
+
+.mod-row {
+    margin: 100px auto;
+    width: 75%;
+    text-align: left;
+    line-height: 2;
+}
+
+.mod-text {
+    padding-top: 50px;
+}
+
+.mods-title {
+    margin-bottom: -50px;
+}
+
+.hide {
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+#twitch-video {
+    padding-top: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+#twitch-video iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.twitch-container .twitch-chat {
+    background-color: #0F3460;
+    height: 400px;
+}
+
+.twitch-container .twitch-chat iframe {
+    background-color: #0F3460;
+    width: 100%;
+    height: 100%;
+}
+@media screen and (min-width: 850px) {
+    .twitch-container {
+        background-color: #0F3460;
+        position: relative;
+    }
+
+    #twitch-video {
+        width: 75%;
+        padding-top: 42.1875%;
+    }
+
+    .twitch-container .twitch-chat {
+        width: 25%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
